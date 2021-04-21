@@ -1,35 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { counterActions } from "../store/counter";
 import { gameActions } from "../store/gameStore";
-import PlayerCard from "./PlayerCard";
+import ComputerCard from "./ComputerCard";
 
 const CardStack = styled.div`
 	${(props) =>
 		props.isInTurn
-			? `transform:translateY(150px); 
-		@media (max-width: 600px){
-			transform:translateY(80px);
-	}`
+			? `transform:translateY(-140px); 
+				@media (max-width: 600px){
+				transform:translateY(-80px);
+			}`
 			: null}
 `;
 
-const PlayersCardStack = () => {
+const ComputersCardStack = () => {
 	const dispatch = useDispatch();
 
-	const counter = useSelector((state) => state.counter.value);
 	const isInTurn = useSelector((state) => state.game.isInTurn);
-	const cards = useSelector((state) => state.game.playerCards);
+	const cards = useSelector((state) => state.game.computerCards);
 	const [totalCards, setTotalCards] = useState(0);
 
-	const incrementHandler = () => {
-		dispatch(counterActions.increment(10));
-	};
-
-	const decrementHandler = () => {
-		dispatch(counterActions.decrement());
-	};
 	const [isInTurnState, setIsInTurnState] = useState(false);
 
 	useEffect(() => {
@@ -47,18 +38,18 @@ const PlayersCardStack = () => {
 	const handleOnSwap = () => {
 		let newCards = [...cards];
 		newCards.pop();
-		dispatch(gameActions.setPlayerCards(newCards));
+		dispatch(gameActions.setComputerCards(newCards));
 	};
 
 	return (
 		<>
-			<button onClick={incrementHandler}>Increment</button>
-			<button onClick={decrementHandler}>Decrement</button>
-			<CardStack className="stack player-stack" isInTurn={isInTurnState}>
-				{counter}
+			<CardStack
+				className="stack computer-stack"
+				isInTurn={isInTurnState}
+			>
 				{cards.map((item, index) => {
 					return (
-						<PlayerCard
+						<ComputerCard
 							key={item}
 							length={cards.length}
 							total={totalCards}
@@ -72,4 +63,4 @@ const PlayersCardStack = () => {
 	);
 };
 
-export default PlayersCardStack;
+export default ComputersCardStack;

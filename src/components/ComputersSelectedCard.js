@@ -4,17 +4,17 @@ import styled from "styled-components";
 const CardSelected = styled.div`
 	${(props) =>
 		props.isFlipped
-			? `transform: translate(200px, 140px) rotateY(180deg); 
-				@media (max-width: 1000px){
-					transform: translate(35px, 180px) rotateY(180deg);
-				}
+			? `transform: translate(-200px, 140px) rotateY(180deg); 
+                @media (max-width: 1000px){
+                    transform: translate(-10px, 180px) rotateY(180deg);
 				@media (max-width: 600px){
-					transform: translate(10px, 285px) rotateY(180deg);
-				}`
+					transform: translate(-10px, 5px) rotateY(180deg);
+				}
+                }`
 			: null}
 `;
 
-const PlayersSelectedCard = () => {
+const ComputersSelectedCard = () => {
 	const [isFlipped, setIsFlipped] = useState(false);
 
 	useEffect(() => {
@@ -25,7 +25,7 @@ const PlayersSelectedCard = () => {
 
 	return (
 		<CardSelected
-			className="card-selected player-card-selected"
+			className="card-selected computer-card-selected"
 			isFlipped={isFlipped}
 		>
 			<div className="card-selected__front">front</div>
@@ -34,4 +34,4 @@ const PlayersSelectedCard = () => {
 	);
 };
 
-export default PlayersSelectedCard;
+export default ComputersSelectedCard;
