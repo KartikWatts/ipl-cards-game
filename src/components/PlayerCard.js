@@ -1,18 +1,25 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { gameActions } from "../store/gameStore";
 
 const CardDiv = styled.div`
 	transform: translateY(${(props) => -(props.total - props.index) * 5}px)
 		scale(${(props) => 1 - (props.total - props.index) * 0.02});
 	animation: ${(props) =>
 		props.isCardSwappable ? "swap 700ms forwards;" : null};
+	pointer-events: ${(props) => (props.isInTurn ? "none" : "auto")};
 `;
 
 const PlayerCard = ({ length, onSwap, index, total }) => {
+	const dispatch = useDispatch();
+	const isInTurn = useSelector((state) => state.game.isInTurn);
+
 	const [isCardSwappable, setisCardSwappable] = useState(false);
 
 	const handleSwap = () => {
 		setisCardSwappable(true);
+		dispatch(gameActions.toggleTurn());
 
 		setTimeout(() => {
 			setisCardSwappable(false);
@@ -25,6 +32,7 @@ const PlayerCard = ({ length, onSwap, index, total }) => {
 			total={total}
 			index={index}
 			isCardSwappable={isCardSwappable}
+			isInTurn={isInTurn}
 			onClick={handleSwap}
 			className="card"
 		>
