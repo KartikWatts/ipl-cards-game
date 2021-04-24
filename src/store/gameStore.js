@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { playerCards: [], computerCards: [], isInTurn: false };
+const initialState = {
+	playerCards: [],
+	computerCards: [],
+	isInTurn: false,
+	dataSelected: null,
+};
 
 const gameSlice = createSlice({
 	name: "game",
@@ -14,6 +19,9 @@ const gameSlice = createSlice({
 		},
 		toggleTurn(state) {
 			state.isInTurn = !state.isInTurn;
+		},
+		setCardData(state, action) {
+			state.dataSelected = action.payload;
 		},
 	},
 });

@@ -19,6 +19,7 @@ const PlayerCard = ({ length, onSwap, index, total }) => {
 	const [isCardSwappable, setisCardSwappable] = useState(false);
 
 	const handleSwap = () => {
+		if (index + 1 !== length) return;
 		setisCardSwappable(true);
 		dispatch(gameActions.toggleTurn());
 

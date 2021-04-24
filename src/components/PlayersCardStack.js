@@ -44,7 +44,8 @@ const PlayersCardStack = () => {
 		}
 	}, [isInTurn]);
 
-	const handleOnSwap = () => {
+	const handleOnSwap = (index) => {
+		if (index + 1 !== totalCards) return;
 		let newCards = [...cards];
 		newCards.pop();
 		dispatch(gameActions.setPlayerCards(newCards));
@@ -63,7 +64,7 @@ const PlayersCardStack = () => {
 							length={cards.length}
 							total={totalCards}
 							index={index}
-							onSwap={handleOnSwap}
+							onSwap={() => handleOnSwap(index)}
 						/>
 					);
 				})}

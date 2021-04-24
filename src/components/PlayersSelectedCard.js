@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { gameActions } from "../store/gameStore";
 
 const CardSelected = styled.div`
 	${(props) =>
@@ -15,6 +17,7 @@ const CardSelected = styled.div`
 `;
 
 const PlayersSelectedCard = () => {
+	const dispatch = useDispatch();
 	const [isFlipped, setIsFlipped] = useState(false);
 
 	useEffect(() => {
@@ -27,6 +30,12 @@ const PlayersSelectedCard = () => {
 		<CardSelected
 			className="card-selected player-card-selected"
 			isFlipped={isFlipped}
+			//TODO dispatch data from actual card later
+			onClick={() =>
+				dispatch(
+					gameActions.setCardData({ field: "matches", data: "100" })
+				)
+			}
 		>
 			<div className="card-selected__front">front</div>
 			<div className="card-selected__back">back</div>

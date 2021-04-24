@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 const CardSelected = styled.div`
@@ -15,13 +16,17 @@ const CardSelected = styled.div`
 `;
 
 const ComputersSelectedCard = () => {
+	const cardData = useSelector((state) => state.game.dataSelected);
 	const [isFlipped, setIsFlipped] = useState(false);
 
 	useEffect(() => {
-		setTimeout(() => {
-			setIsFlipped(true);
-		}, 600);
-	}, []);
+		if (cardData) {
+			setTimeout(() => {
+				setIsFlipped(true);
+				console.log(cardData);
+			}, 300);
+		}
+	}, [cardData]);
 
 	return (
 		<CardSelected
