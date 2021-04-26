@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styled, { keyframes } from "styled-components";
+import CardDisplay from "./CardDisplay";
 
 const emergeAnimation = keyframes`
 	0% {opacity: 0 }
@@ -50,7 +51,7 @@ const ComputersSelectedCard = ({ isCardSelected }) => {
 					isFlipped={isFlipped}
 				>
 					<CardFront className="card-selected__front"></CardFront>
-					<div className="card-selected__back"></div>
+					<CardDisplay />
 				</CardSelected>
 			)}
 		</>
