@@ -21,18 +21,16 @@ const GameArena = () => {
 
 	useEffect(() => {
 		if (isInTurn) {
-			setTimeout(() => {
-				setisCardSelected(true);
-			}, 800);
+			setisCardSelected(true);
 		}
 	}, [isInTurn]);
 
 	return (
 		<div className="game-arena">
 			<PlayersCardStack />
-			{isCardSelected && <PlayersSelectedCard />}
+			<PlayersSelectedCard isCardSelected={isCardSelected} />
 			<ComputersCardStack />
-			{isCardSelected && <ComputersSelectedCard />}
+			<ComputersSelectedCard isCardSelected={isCardSelected} />
 		</div>
 	);
 };

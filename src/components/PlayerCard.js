@@ -38,7 +38,7 @@ const PlayerCard = ({ length, onSwap, index, total }) => {
 			onClick={handleSwap}
 			className="card player-card"
 		>
-			{isCardSwappable ? null : length}
+			<div>{isCardSwappable ? null : length}</div>
 		</CardDiv>
 	);
 };

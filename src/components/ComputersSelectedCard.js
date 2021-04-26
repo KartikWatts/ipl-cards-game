@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const emergeAnimation = keyframes`
+	0% {opacity: 0 }
+	30%{opacity:0}
+	100% {opacity: 1; }
+`;
 
 const CardSelected = styled.div`
 	${(props) =>
 		props.isFlipped
-			? `transform: translate(-200px, 140px) rotateY(180deg); 
+			? `
+			z-index: 2;
+			transform: translate(-200px, 140px) rotateY(180deg); 
                 @media (max-width: 1000px){
                     transform: translate(-10px, 180px) rotateY(180deg);
 				@media (max-width: 600px){
@@ -15,7 +23,13 @@ const CardSelected = styled.div`
 			: null}
 `;
 
-const ComputersSelectedCard = () => {
+const CardFront = styled.div`
+	animation-name: ${emergeAnimation};
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+`;
+
+const ComputersSelectedCard = ({ isCardSelected }) => {
 	const cardData = useSelector((state) => state.game.dataSelected);
 	const [isFlipped, setIsFlipped] = useState(false);
 
@@ -29,13 +43,17 @@ const ComputersSelectedCard = () => {
 	}, [cardData]);
 
 	return (
-		<CardSelected
-			className="card-selected computer-card-selected"
-			isFlipped={isFlipped}
-		>
-			<div className="card-selected__front">front</div>
-			<div className="card-selected__back">back</div>
-		</CardSelected>
+		<>
+			{isCardSelected && (
+				<CardSelected
+					className="card-selected computer-card-selected"
+					isFlipped={isFlipped}
+				>
+					<CardFront className="card-selected__front"></CardFront>
+					<div className="card-selected__back"></div>
+				</CardSelected>
+			)}
+		</>
 	);
 };
 

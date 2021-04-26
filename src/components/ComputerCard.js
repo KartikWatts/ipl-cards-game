@@ -43,7 +43,7 @@ const ComputerCard = ({ length, index, total }) => {
 			isInTurn={isInTurn}
 			className="card computer-card"
 		>
-			{isCardSwappable ? null : length}
+			<div>{isCardSwappable ? null : length}</div>
 		</CardDiv>
 	);
 };
