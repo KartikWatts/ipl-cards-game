@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { gameActions } from "../store/gameStore";
 
 const CardDiv = styled.div`
 	transform: translateX(${(props) => -(props.total - props.index) * 2.5}px)
@@ -27,27 +26,22 @@ const CardDiv = styled.div`
 `;
 
 const ComputerCard = ({ length, index, total }) => {
-	let dispatch = useDispatch();
-
 	const isInTurn = useSelector((state) => state.game.isInTurn);
-	const cards = useSelector((state) => state.game.computerCards);
+	const changesDone = useSelector((state) => state.game.changesDone);
 
 	const [isCardSwappable, setisCardSwappable] = useState(false);
 
 	useEffect(() => {
 		const handleSwap = () => {
-			if (isInTurn && index + 1 === cards.length) {
+			if (isInTurn && changesDone && index + 1 === length) {
 				setisCardSwappable(true);
 				setTimeout(() => {
 					setisCardSwappable(false);
-					let newCards = [...cards];
-					newCards.pop();
-					dispatch(gameActions.setComputerCards(newCards));
 				}, 1500);
 			}
 		};
 		handleSwap();
-	}, [isInTurn]);
+	}, [isInTurn, index, length, changesDone]);
 
 	return (
 		<CardDiv

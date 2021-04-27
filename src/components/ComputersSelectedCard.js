@@ -5,7 +5,7 @@ import CardDisplay from "./CardDisplay";
 
 const emergeAnimation = keyframes`
 	0% {opacity: 0 }
-	30%{opacity:0}
+	50%{opacity:0}
 	100% {opacity: 1; }
 `;
 
@@ -26,7 +26,7 @@ const CardSelected = styled.div`
 
 const CardFront = styled.div`
 	animation-name: ${emergeAnimation};
-	animation-duration: 1s;
+	animation-duration: 3.5s;
 	animation-fill-mode: forwards;
 `;
 
