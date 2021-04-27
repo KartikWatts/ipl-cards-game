@@ -44,7 +44,7 @@ const CardSelected = styled.div`
 				transform: translate(35px, 180px) rotateY(180deg);
 			}
 			@media (max-width: 600px){
-				transform: translate(10px, 285px) rotateY(180deg);
+				transform: translate(10px, 325px) rotateY(180deg);
 			}`
 			: null}
 `;

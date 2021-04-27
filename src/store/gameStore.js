@@ -4,7 +4,9 @@ const initialState = {
 	playerCards: [],
 	computerCards: [],
 	isInTurn: false,
+	turnOf: "player",
 	dataSelected: null,
+	otherData: null,
 };
 
 const gameSlice = createSlice({
