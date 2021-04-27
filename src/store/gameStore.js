@@ -4,6 +4,7 @@ const initialState = {
 	playerCards: [],
 	computerCards: [],
 	isInTurn: false,
+	changesDone: false,
 	turnOf: "player",
 	dataSelected: null,
 	otherData: null,
@@ -24,6 +25,9 @@ const gameSlice = createSlice({
 		},
 		setCardData(state, action) {
 			state.dataSelected = action.payload;
+		},
+		setChangesDone(state, action) {
+			state.changesDone = action.payload;
 		},
 	},
 });

@@ -19,6 +19,7 @@ const PlayersCardStack = () => {
 
 	const isInTurn = useSelector((state) => state.game.isInTurn);
 	const cards = useSelector((state) => state.game.playerCards);
+	const cardsComputer = useSelector((state) => state.game.computerCards);
 	const [totalCards, setTotalCards] = useState(0);
 
 	const [isInTurnState, setIsInTurnState] = useState(false);
@@ -40,6 +41,10 @@ const PlayersCardStack = () => {
 		let newCards = [...cards];
 		newCards.pop();
 		dispatch(gameActions.setPlayerCards(newCards));
+		let newCardsComputer = [...cardsComputer];
+		newCardsComputer.pop();
+		dispatch(gameActions.setComputerCards(newCards));
+		dispatch(gameActions.setChangesDone(true));
 	};
 
 	return (

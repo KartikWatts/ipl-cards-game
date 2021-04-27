@@ -17,23 +17,13 @@ const CardStack = styled.div`
 const ComputersCardStack = () => {
 	const dispatch = useDispatch();
 
-	const isInTurn = useSelector((state) => state.game.isInTurn);
+	const changesDone = useSelector((state) => state.game.changesDone);
 	const cards = useSelector((state) => state.game.computerCards);
 	const [totalCards, setTotalCards] = useState(0);
-
-	const [isInTurnState, setIsInTurnState] = useState(false);
 
 	useEffect(() => {
 		setTotalCards(cards.length);
 	}, [cards]);
-
-	useEffect(() => {
-		if (isInTurn) {
-			setTimeout(() => {
-				setIsInTurnState(true);
-			}, 1500);
-		}
-	}, [isInTurn]);
 
 	const handleOnSwap = () => {
 		let newCards = [...cards];
@@ -43,10 +33,7 @@ const ComputersCardStack = () => {
 
 	return (
 		<>
-			<CardStack
-				className="stack computer-stack"
-				isInTurn={isInTurnState}
-			>
+			<CardStack className="stack computer-stack" isInTurn={changesDone}>
 				{cards.map((item, index) => {
 					return (
 						<ComputerCard
