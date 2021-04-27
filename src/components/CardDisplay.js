@@ -38,9 +38,7 @@ const CardDisplay = () => {
 			</div>
 			<div className="display-main">
 				<div className="main-player-name">Ravichandran Ashwin</div>
-				<div className="main-player-team">
-					Royal Challengers Banglore
-				</div>
+				<div className="main-player-team">Punjab Kings</div>
 				<div className="main-last">
 					<CardData field="Matches" data={100} />
 				</div>
