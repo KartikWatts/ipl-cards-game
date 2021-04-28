@@ -33,7 +33,7 @@ jobs:
             - name: Set Environment Variables
               run: echo Hello Kartik, setting environment variables here.
               env: 
-                REACT_APP_KEY= Working Fine On Production
+                REACT_APP_KEY: Working Fine On Production
 
             # Runs the Install and Build scripts
             - name: Install and Build
