@@ -25,15 +25,15 @@ jobs:
                 node-version: [14.x]
         # Steps represent a sequence of tasks that will be executed as part of the job
         steps:
-            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-            - name: Checkout
-              uses: actions/checkout@v2
-
             # Sets environment variables
             - name: Set Environment Variables
               run: echo Hello Kartik, setting environment variables here.
               env: 
-                REACT_APP_KEY: Working Fine On Production
+                REACT_APP_KEY: Working_Fine_On_Production
+
+            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+            - name: Checkout
+              uses: actions/checkout@v2
 
             # Runs the Install and Build scripts
             - name: Install and Build
