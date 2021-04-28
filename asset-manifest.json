@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/ipl-cards-game/static/css/main.c6088837.chunk.css",
-    "main.js": "/ipl-cards-game/static/js/main.6feb9f4f.chunk.js",
-    "main.js.map": "/ipl-cards-game/static/js/main.6feb9f4f.chunk.js.map",
+    "main.js": "/ipl-cards-game/static/js/main.83a99f2f.chunk.js",
+    "main.js.map": "/ipl-cards-game/static/js/main.83a99f2f.chunk.js.map",
     "runtime-main.js": "/ipl-cards-game/static/js/runtime-main.6d54148e.js",
     "runtime-main.js.map": "/ipl-cards-game/static/js/runtime-main.6d54148e.js.map",
-    "static/js/2.cdb7d599.chunk.js": "/ipl-cards-game/static/js/2.cdb7d599.chunk.js",
-    "static/js/2.cdb7d599.chunk.js.map": "/ipl-cards-game/static/js/2.cdb7d599.chunk.js.map",
+    "static/js/2.b90dc75e.chunk.js": "/ipl-cards-game/static/js/2.b90dc75e.chunk.js",
+    "static/js/2.b90dc75e.chunk.js.map": "/ipl-cards-game/static/js/2.b90dc75e.chunk.js.map",
     "static/js/3.bafdf794.chunk.js": "/ipl-cards-game/static/js/3.bafdf794.chunk.js",
     "static/js/3.bafdf794.chunk.js.map": "/ipl-cards-game/static/js/3.bafdf794.chunk.js.map",
     "index.html": "/ipl-cards-game/index.html",
     "static/css/main.c6088837.chunk.css.map": "/ipl-cards-game/static/css/main.c6088837.chunk.css.map",
-    "static/js/2.cdb7d599.chunk.js.LICENSE.txt": "/ipl-cards-game/static/js/2.cdb7d599.chunk.js.LICENSE.txt"
+    "static/js/2.b90dc75e.chunk.js.LICENSE.txt": "/ipl-cards-game/static/js/2.b90dc75e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6d54148e.js",
-    "static/js/2.cdb7d599.chunk.js",
+    "static/js/2.b90dc75e.chunk.js",
     "static/css/main.c6088837.chunk.css",
-    "static/js/main.6feb9f4f.chunk.js"
+    "static/js/main.83a99f2f.chunk.js"
   ]
 }
