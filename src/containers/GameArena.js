@@ -25,6 +25,8 @@ const GameArena = () => {
 		}
 	}, [isInTurn]);
 
+	console.log(process.env.REACT_APP_KEY);
+
 	return (
 		<div className="game-arena">
 			<PlayersCardStack />
