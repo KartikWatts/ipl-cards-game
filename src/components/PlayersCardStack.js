@@ -53,7 +53,7 @@ const PlayersCardStack = () => {
 				{cards.map((item, index) => {
 					return (
 						<PlayerCard
-							key={item}
+							key={index}
 							length={cards.length}
 							total={totalCards}
 							index={index}

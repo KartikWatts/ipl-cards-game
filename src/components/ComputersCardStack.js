@@ -37,7 +37,7 @@ const ComputersCardStack = () => {
 				{cards.map((item, index) => {
 					return (
 						<ComputerCard
-							key={item}
+							key={index}
 							length={cards.length}
 							total={totalCards}
 							index={index}
